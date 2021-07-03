@@ -15,9 +15,7 @@ class CreateUsermetasTable extends Migration
     {
         Schema::create('usermetas', function (Blueprint $table) {
             $table->id();
-            $table->is_integer('user_id'); 
-            $table->string('name')->nullable();
-            $table->string('email')->nullable();
+            $table->unsignedInteger('user_id'); 
             $table->string('country')->nullable();
             $table->string('city')->nullable();
             $table->string('state')->nullable();

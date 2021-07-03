@@ -8,7 +8,7 @@ use App\Http\Controllers\AbcController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TaxController;
 use App\Http\Controllers\UsermetaController;
-
+use App\Http\Controllers\ProfileController;
 
 
 /*
@@ -63,6 +63,10 @@ Route::group(['middleware' => 'admin'], function() {
 	// UserMeta
 	Route::post('/usermeta_store', [UsermetaController::class,'addUsermeta']);
 	
+      Route::group(['prefix' => 'profile'], function() {
+            Route::get('/', [ProfileController::class, 'getProfile']);
+            Route::post('/', [ProfileController::class, 'postProfile']);            
+    });
 
 
 });

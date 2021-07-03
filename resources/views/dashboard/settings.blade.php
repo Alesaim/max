@@ -3,7 +3,7 @@
 @section('content')
 
 <section class="content container">
-               <form method="post" enctype="multipart/form-data" action="/usermeta_store" role="form" class="form-horizontal">
+               <form method="post" enctype="multipart/form-data" role="form" class="form-horizontal">
                   @csrf
                   <div class="nav-tabs-custom">
                      <ul class="nav nav-tabs admin">
@@ -39,7 +39,7 @@
                               <div class="form-group m-t-20">
                                  <label class="col-sm-4 control-label" for="example-input-normal">Email</label>
                                  <div class="col-sm-12">
-                                    <input type="text" name="email" value="{{ Sentinel::getUser()->email }}" class="form-control" >
+                                    <input type="text" name="email" value="{{ $profile->email }}" class="form-control" >
                                  </div>
                               </div>
 
@@ -807,7 +807,7 @@
                               <div class="form-group">
                                  <label class="col-sm-2 control-label" for="example-input-normal">City</label>
                                  <div class="col-sm-12">
-                                    <input type="text" name="city" class="form-control" value="">
+                                    <input type="text" name="city" class="form-control" value="{{$profile->meta->city}}">
                                  </div>
                               </div>
                               <div class="form-group">

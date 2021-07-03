@@ -6,7 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-
+use App\Models\UserMeta;
 class User extends Authenticatable
 {
     use HasFactory, Notifiable;
@@ -31,6 +31,11 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+   public function meta()
+    {
+        return $this->hasOne(UserMeta::class, 'user_id', 'id');
+    }
 
     /**
      * The attributes that should be cast to native types.

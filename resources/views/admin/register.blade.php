@@ -49,8 +49,12 @@
                      @csrf
                      <h4 class="__title">Sign Up</h4>
                      <div class="input-wrp">
-                        <input class="textfield textfield--grey" type="text" name="name" placeholder="Full name" required />
+                        <input class="textfield textfield--grey" type="text" name="first_name" placeholder="First name" required />
                      </div>
+                     <div class="input-wrp">
+                        <input class="textfield textfield--grey" type="text" name="last_name" placeholder="Last name" required />
+                     </div>
+
                      <div class="input-wrp">
                         <input class="textfield textfield--grey" type="email" name="email" placeholder="Email" required />
                      </div>

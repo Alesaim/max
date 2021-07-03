@@ -13,14 +13,25 @@ class RegisterController extends Controller
     }
 
     public function postRegister(Request $request){ 
-    	$user = Sentinel::registerAndActivate($request->all());
+
+
+        $credentials = [
+                'first_name' => $request->input('first_name'),
+                'last_name' => $request->input('last_name'),
+                'email' => $request->input('email'),
+                'password' => $request->input('password')
+        ];
+
+    	$user = Sentinel::registerAndActivate($credentials);
+        $user->banned = 0;
+        $user->save();
 
     	UserMeta::create([
-    		'user_id' => $user->id,
-    		'name' => $user->name,
+    		'user_id' => $user->id
     	]);
     	return redirect('/');
 
         }
+
 }
  
